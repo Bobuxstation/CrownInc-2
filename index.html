@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Crown. Inc 2</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="js/Achivements.JS" defer></script>
+	<script src="js/InteractiveButtons.JS" defer></script>
+	<script src="js/index.js" defer></script>
+	<script src="js/OpenClose.JS" defer></script>
+	<script src="js/fontawesome.js" defer></script>
+	<script src="js/Lawsuit.JS	" defer></script>
+	<script src="js/ParticleEngine.JS" defer></script>
+	<script src="js/loop.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/ml-classify-text@2.0.1/lib/index.min.js"></script>
+</head>
+
+<body>
+	<div class="rotate">
+		<center>
+			<h1><i class="fa-solid fa-rotate"></i></h1><br>
+			<h2>You need to rotate your device to play this game!</h2>
+		</center>
+	</div>
+
+	<nav style="bottom: 0;">
+		<marquee style="padding: 5px;">
+			Welcome To Crown. Inc! |
+			Breaking News: Another company falls victim to your growing empire. Analysts are saying your company is on
+			track to become the biggest in the industry. |
+			In an unprecedented move, your company has just purchased a major competitor for a record-breaking amount.
+			The acquisition has sent shockwaves through the industry. |
+			Reports are coming in that your company's profits have surpassed those of every other company in the
+			industry combined. Experts are calling it a financial miracle. |
+			Rumors are circulating that your company is developing a groundbreaking new technology that will change the
+			game forever. Investors are already lining up to get in on the action. |
+			Sources close to the CEO have revealed that your company is planning to launch an ambitious expansion plan,
+			with sights set on dominating new markets across the globe. |
+			Industry tycoon buys out all coffee shops in town, caffeine addicts in panic! |
+			Rumors of insider trading surround major corporation's sudden stock spike |
+			Competing company launches aggressive marketing campaign, offers free puppies with purchase |
+			Environmentalists protest company's mass deforestation tactics |
+			CEO's luxurious vacation sparks public outrage as employees continue to work overtime |
+		</marquee>
+	</nav>
+
+	<ul>
+		<div>
+			<li><a id="clone" onclick="statsMenu()"><i class="fa-solid fa-medal"></i></a></li>
+			<li><a id="hire" onclick="hireMenu()"><i class="fa-solid fa-person-digging"></i></a></li>
+			<li><a id="building" onclick="buildingMenu()"><i class="fa-solid fa-building-flag"></i></a></li>
+			<li><a id="clone" onclick="cloneMenu()"><i class="fa-solid fa-copy"></i></a></li>
+		</div>
+	</ul>
+
+	<div class="overlay">
+
+		<div id="EmployeeMenu">
+			<div class="form">
+				<p class="tabtitle">Hire Workers. You Have: <span id="employee-count">0</span></p>
+				<div id="hire-button" class="buildingCard">
+					<h3><i class="fa-solid fa-person-digging"></i> Hire a Worker</h3>
+					<p>Hire a Worker. <span id="employee-cost" class="price">0</span></p>
+				</div>
+			</div>
+		</div>
+
+		<div id="building-container" style="display: none;">
+		</div>
+
+		<div id="repo-container" style="display: none;">
+		</div>
+
+		<div id="stats-container" style="display: none;">
+			<p class="tabtitle">Stats:</p>
+			<div class="buildingCard">
+				<h3><i class="fa-solid fa-money-bill"></i> Money</h3>
+				<p id="score-stat"></p>
+			</div>
+			<div class="buildingCard">
+				<h3><i class="fa-solid fa-person-digging"></i> Workers</h3>
+				<p id="employee-stat-count"></p>
+			</div>
+			<div class="buildingCard">
+				<h3><i class="fa-solid fa-building-flag"></i> Building Earnings</h3>
+				<p id="building-stat"></p>
+			</div>
+			<div class="buildingCard">
+				<h3><i class="fa-solid fa-copy"></i> Stolen Repository Earnings</h3>
+				<p id="repo-stat"></p>
+			</div>
+			<div class="buildingCard">
+				<h3><i class="fa-solid fa-thumbs-up"></i> Total Respect</h3>
+				<p id="respect-stat"></p>
+			</div>
+
+			<p class="tabtitle">Achievements:</p>
+			<div id="achievements-list">
+
+			</div>
+
+			<p class="tabtitle">Settings:</p>
+			<div class="buildingCard" style="padding-bottom: 0;">
+				<h3><i class="fa-solid fa-gear"></i> Max Particles</h3>
+				<input type="range" style="padding-bottom: 0; accent-color: lightgray;" max="1024" value="256"
+					id="particleMeter">
+			</div>
+		</div>
+	</div>
+
+	<div id="lawsuitbox" class="antiautoclickwindow" style="display: none;">
+		<div id="lawsuitActions"></div>
+	</div>
+
+	<div id="introduction" class="antiautoclickwindow">
+		<div id="welcomeBox">
+			<p class="tabtitle">Welcome to Crown. Inc!</p>
+			<div class="buildingCard" style="background-image: url('assets/intro.png'); min-height: 300px; aspect-ratio: 1/1;">
+			</div>
+			<div class="buildingCard" onclick="
+				this.parentNode.parentNode.style.display='none';
+				let Ring=new Audio('assets/intro.wav');
+				Ring.play()
+			">Continue</div>
+		</div>
+	</div>
+
+	<header>
+		<div>
+			<h1 style="text-shadow: 2px 2px 10px #000;">
+				You Have Earned:
+			</h1>
+			<h2 style="text-shadow: 2px 2px 10px #000;" id="score-stat-too">0</h2><br>
+			<button id="cookie">
+				<i class="fa-solid fa-book-bookmark"></i><br>
+				New Product
+			</button>
+		</div>
+	</header>
+
+	<canvas id="cookie-particles"></canvas>
+</body>
+
+</html>
