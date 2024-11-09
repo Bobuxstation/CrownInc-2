@@ -60,7 +60,7 @@ function newLawSuit() {
     scorebar.appendChild(scorebar1)
 
     let courtroomimage = document.createElement('div')
-    courtroomimage.style.backgroundImage = "url('courtroom.png')"
+    courtroomimage.style.backgroundImage = "url('assets/courtroom.png')"
     courtroomimage.style.minHeight = "100px"
     courtroomimage.className = "buildingCard"
     document.getElementById('lawsuitActions').appendChild(courtroomimage)
